@@ -1,0 +1,17 @@
+
++-+-+-+-+-+-+-+-+-+-+
+|M|o|u|l|i|n|e|t|t|e|
++-+-+-+-+-+-+-+-+-+-+
+
+work/aff_a/check.pl good!
+work/aff_z/check.pl good!
+work/maff_revalpha/check.pl good!
+work/first_word/check.pl good!
+work/ft_putstr/main_basic good!
+work/ft_putstr/main_multiple good!
+work/ft_putstr/main_empty good!
+work/ft_strcpy/main good!
+work/ft_swap/main good!
+work/rev_print/check.pl good!
+work/search_and_replace/check.pl good!
+work/ulstr/check.pl good!
