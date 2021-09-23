@@ -11,6 +11,9 @@ Ensuite, on lance la serie d'exam avec :
 Puis, il faut suivre les instructions, mais après c'est :
 `sh grademe`
 
+Pour quitter
+`sh exit`
+
 
 Il y a 3 exercice aléatoire par niveau, pour 6 pts chacun. Vous pouvez relancer sh examplay si vous avez un doublon.
 
