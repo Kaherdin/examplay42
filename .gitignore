@@ -3,3 +3,5 @@ work/*
 sujets/*
 rendu/*
 *.log
+result.txt
+TRACE.txt
