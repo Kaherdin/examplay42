@@ -1,0 +1,26 @@
+#!/bin/sh
+
+#Start with exercice 00
+if [ -z ${1+x} ]
+then 
+    dir="source/00"
+    #create empty directory for render
+    mkdir sujets
+    mkdir rendu
+else 
+    dir="source/$1"
+fi
+
+
+#Choose a random folder in 00
+folder=`/bin/ls -d "$dir"/*/ | sort --random-sort | head -1` 
+
+#Get only name of folder
+newfolder=$( echo "$folder" | cut -d '/' -f3-)
+
+#copy random folder
+cp -r $folder sujets/$newfolder
+
+echo "Votre prochain exercice est : $newfolder"
+
+

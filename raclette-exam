@@ -1,0 +1,48 @@
+#!/bin/sh
+./spawn.pl rendu "config/exam/all.pl"
+
+clear
+./tools/build.sh
+clear
+echo "Le niveau est: $1"
+
+
+echo "\n+-+-+-+-+-+-+-+-+-+-+" > TRACE.txt
+echo "|M|o|u|l|i|n|e|t|t|e|" >> TRACE.txt
+echo "+-+-+-+-+-+-+-+-+-+-+\n" >> TRACE.txt
+
+./tools/check_all.sh >> TRACE.txt
+
+result=`grep -c 'good!' TRACE.txt`
+let score=result*6
+#echo result : $score
+
+if grep -q ERROR TRACE.txt; then
+    echo Error
+    open TRACE.txt
+else
+    echo Bravo ! Votre score est maintenant de : $score
+    echo  $result > result.txt
+    if [[ $result -ge 0 ]] && [[ $result -le 2 ]]; then
+        sh examplay 00
+    elif [[ $result -ge 3 ]] && [[ $result -le 5 ]]; then
+        sh examplay 01
+    elif [[ $result -ge 6 ]] && [[ $result -le 8 ]]; then
+        ssh examplay 02
+    elif [[ $result -ge 9 ]] && [[ $result -le 11 ]]; then
+        sh examplay 03
+    elif [[ $result -ge 12 ]] && [[ $result -le 14 ]]; then
+        sh examplay 04
+    elif [[ $result -ge 15 ]] && [[ $result -le 17 ]]; then
+        sh examplay 05
+    fi
+    #open result.txt
+   
+fi
+
+rm -rf tools/ work/
+
+#cp TRACE_$1.txt ~/Desktop
+
+#echo "The results can be found in TRACE_$1.log"
+#open ./TRACE_$1.log

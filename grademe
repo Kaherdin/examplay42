@@ -1,0 +1,28 @@
+#!/bin/sh
+
+#check result
+result=`cat result.txt`
+
+if [[ $result -ge 0 ]] && [[ $result -le 2 ]]
+then
+    sh raclette-exam 00
+elif [[ $result -ge 3 ]] && [[ $result -le 5 ]]
+then
+    sh raclette-exam 01
+elif [[ $result -ge 6 ]] && [[ $result -le 8 ]]
+then
+    sh raclette-exam 02
+elif [[ $result -ge 9 ]] && [[ $result -le 11 ]]
+then
+    sh raclette-exam 03
+elif [[ $result -ge 12 ]] && [[ $result -le 14 ]]
+then
+    sh raclette-exam 04
+elif [[ $result -ge 15 ]] && [[ $result -le 17 ]]
+then
+    sh raclette-exam 05
+fi
+
+
+
+
