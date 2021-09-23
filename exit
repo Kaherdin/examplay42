@@ -1,0 +1,10 @@
+echo "Etes vous sur de vouloir quitter et tout remettre à 0 ?"
+echo "Votre dossier /rendu sera effacé"
+result=`grep -c 'good!' TRACE.txt`
+let score=result*6
+select on in "Oui" "Non"; do
+    case $on in
+        Oui ) echo Bravo ! Votre score est de : $score  rm -rf TRACE.txt rendu/ tools/ work/ result.txt ; break;;
+        Non ) exit;;
+    esac
+done

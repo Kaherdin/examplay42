@@ -13,14 +13,17 @@ echo "+-+-+-+-+-+-+-+-+-+-+\n" >> TRACE.txt
 
 ./tools/check_all.sh >> TRACE.txt
 
+#Count how many exercies has been done correctly.
 result=`grep -c 'good!' TRACE.txt`
 let score=result*6
-#echo result : $score
+#echo result : $result
 
+
+#Check if there is an ERROR message in TRACE.txt
 if grep -q ERROR TRACE.txt; then
-    echo Error
+    echo Il y a une erreur !
     open TRACE.txt
-else
+elif [[ $result -ge 1 ]]; then
     echo Bravo ! Votre score est maintenant de : $score
     echo  $result > result.txt
     if [[ $result -ge 0 ]] && [[ $result -le 2 ]]; then
@@ -37,10 +40,11 @@ else
         sh examplay 05
     fi
     #open result.txt
-   
+else
+    echo "Auncun fichier(s) trouvé(s) dans le dossier rendu. Verfiez"
 fi
 
-rm -rf tools/ work/
+rm -rf tools/ work/ result.txt
 
 #cp TRACE_$1.txt ~/Desktop
 
